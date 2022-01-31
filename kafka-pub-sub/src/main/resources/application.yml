@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  kafka:
+    properties:
+      "[request.timeout.ms]": "30000"
+    consumer:
+      bootstrap-servers: localhost:9092
+      auto-offset-reset: earliest
+      group-id: boot
+      client-id: boot_client-id
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+topic:
+  boot: boot.topic
