@@ -1,0 +1,27 @@
+spring:
+  kafka:
+    properties:
+      "[request.timeout.ms]": "30000"
+    consumer:
+      properties:
+        "[key-serializer]": org.apache.kafka.common.serialization.StringSerializer
+        "[value-serializer]": org.apache.kafka.common.serialization.StringSerializer
+      bootstrap-servers: localhost:9092
+      auto-offset-reset: latest
+      group-id: boot
+      client-id: boot_client-id
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      properties:
+        "[key-serializer]": org.apache.kafka.common.serialization.StringSerializer
+        "[value-serializer]": org.apache.kafka.common.serialization.StringSerializer
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    template:
+      default-topic: boot.topic
+
+  batch:
+    job:
+      enabled: false
